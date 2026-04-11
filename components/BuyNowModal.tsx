@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function BuyNowModal() {
   const [isOn, setIsOn] = useState(true);
@@ -8,14 +9,23 @@ export default function BuyNowModal() {
   const [payLater, setPayLater] = useState("");
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#b0b8c8" }}>
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8" style={{ background: "#b0b8c8" }}>
+
+      <Link
+        href="/"
+        className="mb-4 text-sm text-white/80 hover:text-white flex items-center gap-1 self-start ml-auto mr-auto"
+        style={{ maxWidth: 340 }}
+      >
+        ← 返回留言板
+      </Link>
+
       <div className="w-[340px] bg-white rounded-[20px] overflow-hidden font-sans shadow-lg">
 
         <div className="px-5 pt-5 flex items-center justify-between">
           <span className="text-lg font-medium text-gray-900">Buy Now</span>
-          <button className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-sm hover:bg-gray-50">
+          <Link href="/" className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 text-sm hover:bg-gray-50">
             ✕
-          </button>
+          </Link>
         </div>
 
         <div className="px-5 pt-4 pb-3 flex gap-4 items-center">
@@ -43,15 +53,11 @@ export default function BuyNowModal() {
           </div>
           <div className="bg-gray-50 rounded-xl px-3.5 py-3 flex items-center justify-between mb-1.5">
             <input
-              type="number"
-              value={payNow}
-              onChange={(e) => setPayNow(e.target.value)}
+              type="number" value={payNow} onChange={(e) => setPayNow(e.target.value)}
               className="text-xl font-medium text-gray-900 bg-transparent outline-none w-24"
               placeholder="0"
             />
-            <button className="text-xs font-medium px-3 py-1 rounded-lg" style={{ background: "#e8e8ff", color: "#4f46e5" }}>
-              Max
-            </button>
+            <button className="text-xs font-medium px-3 py-1 rounded-lg" style={{ background: "#e8e8ff", color: "#4f46e5" }}>Max</button>
           </div>
           <p className="text-xs text-gray-300 text-right mb-4">Balance: 10</p>
 
@@ -66,15 +72,11 @@ export default function BuyNowModal() {
           </div>
           <div className="bg-gray-50 rounded-xl px-3.5 py-3 flex items-center justify-between mb-1.5">
             <input
-              type="number"
-              value={payLater}
-              onChange={(e) => setPayLater(e.target.value)}
+              type="number" value={payLater} onChange={(e) => setPayLater(e.target.value)}
               className="text-xl font-medium text-gray-300 bg-transparent outline-none w-24"
               placeholder="0"
             />
-            <button className="text-xs font-medium px-3 py-1 rounded-lg" style={{ background: "#e8e8ff", color: "#4f46e5" }}>
-              Max
-            </button>
+            <button className="text-xs font-medium px-3 py-1 rounded-lg" style={{ background: "#e8e8ff", color: "#4f46e5" }}>Max</button>
           </div>
           <p className="text-xs text-gray-300 text-right mb-4">Limit: 7.5</p>
         </div>
